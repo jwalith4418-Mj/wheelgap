@@ -90,8 +90,8 @@ If you think wheelgap got a package wrong, that output (or `--json --explain`) i
 
 | name | aliases | wheel tags it accepts |
 | --- | --- | --- |
-| `linux-x86_64` | `linux`, `linux-amd64` | `manylinux_2_*_x86_64` up to `--glibc` (default 2.36), legacy `manylinux2014`/`2010`/`1` |
-| `linux-aarch64` | `linux-arm64` | `manylinux_2_*_aarch64` |
+| `linux-x86_64` | `linux`, `linux-amd64`, `linux/amd64` | `manylinux_2_*_x86_64` up to `--glibc` (default 2.36), legacy `manylinux2014`/`2010`/`1` |
+| `linux-aarch64` | `linux-arm64`, `linux/arm64`, `linux/arm64/v8` | `manylinux_2_*_aarch64` |
 | `musl-x86_64` | `alpine`, `musl` | `musllinux_1_*_x86_64` up to `--musl` (default 1.2) |
 | `musl-aarch64` | `alpine-arm64` | `musllinux_1_*_aarch64` |
 | `macos-arm64` | `macos`, `mac` | `macosx_*_arm64` and `universal2` up to `--macos` (default 14.0) |
