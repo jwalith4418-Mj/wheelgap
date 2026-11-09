@@ -26,8 +26,13 @@ def test_gaps_exit_1(capsys, fixtures):
 
 def test_docker_platform_names_on_cli(capsys, fixtures):
     code, out, err = run(
-        capsys, str(fixtures / "uvproj"), "-p", "3.13",
-        "-t", "linux/amd64,linux/arm64,linux/arm64/v8", "--json",
+        capsys,
+        str(fixtures / "uvproj"),
+        "-p",
+        "3.13",
+        "-t",
+        "linux/amd64,linux/arm64,linux/arm64/v8",
+        "--json",
     )
     assert code == 1
     assert not err
