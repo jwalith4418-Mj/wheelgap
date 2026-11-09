@@ -43,12 +43,18 @@ def test_parse_python_rejects_garbage():
         ("linux/amd64", "linux-x86_64"),
         ("linux/arm64", "linux-aarch64"),
         ("linux/arm64/v8", "linux-aarch64"),
+        (" LINUX/ARM64/V8 ", "linux-aarch64"),
         ("windows", "win-amd64"),
         ("MACOS_INTEL", "macos-x86_64"),
     ],
 )
 def test_aliases(alias, expected):
     assert resolve_platform(alias) == expected
+
+
+def test_docker_platform_list():
+    targets = build_targets(["3.13"], ["linux/amd64,linux/arm64,linux/arm64/v8"])
+    assert [target.platform for target in targets] == ["linux-x86_64", "linux-aarch64"]
 
 
 def test_unknown_platform():
