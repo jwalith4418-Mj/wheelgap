@@ -24,6 +24,7 @@ ALIASES: dict[str, str] = {
     "linux": "linux-x86_64",
     "linux-amd64": "linux-x86_64",
     "linux-arm64": "linux-aarch64",
+    "linux-arm64-v8": "linux-aarch64",
     "manylinux-x86_64": "linux-x86_64",
     "manylinux-aarch64": "linux-aarch64",
     "alpine": "musl-x86_64",
@@ -72,7 +73,7 @@ class TargetError(ValueError):
 
 
 def _norm(name: str) -> str:
-    return name.strip().lower().replace("_", "-")
+    return name.strip().lower().replace("_", "-").replace("/", "-")
 
 
 _LOOKUP = {_norm(k): k for k in PLATFORMS} | {_norm(k): v for k, v in ALIASES.items()}
