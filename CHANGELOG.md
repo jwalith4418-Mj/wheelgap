@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Accept Docker platform names (`linux/amd64`, `linux/arm64`, `linux/arm64/v8`) with `-t`.
+
 ## 0.2.0 (2026-11-09)
 
 Both features in this release come from [@nodearray](https://github.com/nodearray), wheelgap's first contributor.

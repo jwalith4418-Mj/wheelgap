@@ -99,6 +99,8 @@ If you think wheelgap got a package wrong, that output (or `--json --explain`) i
 | `win-amd64` | `windows`, `win` | `win_amd64` |
 | `win-arm64` | `windows-arm64` | `win_arm64` |
 
+Docker platform names also work with `-t`, for example `-t linux/amd64,linux/arm64` (also `linux/arm64/v8`).
+
 `-t all` checks all eight. Python versions take a trailing `t` for free-threaded builds (`3.14t`), which correctly rejects `abi3` wheels. Without `-p`, wheelgap uses the Python it is running on.
 
 ### In CI (GitHub Action)

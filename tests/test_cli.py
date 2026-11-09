@@ -24,6 +24,17 @@ def test_gaps_exit_1(capsys, fixtures):
     assert "\033[" not in out  # no colour when not a TTY
 
 
+def test_docker_platform_names_on_cli(capsys, fixtures):
+    code, out, err = run(
+        capsys, str(fixtures / "uvproj"), "-p", "3.13",
+        "-t", "linux/amd64,linux/arm64,linux/arm64/v8", "--json",
+    )
+    assert code == 1
+    assert not err
+    data = json.loads(out)
+    assert [target["label"] for target in data["targets"]] == ["linux-x86_64", "linux-aarch64"]
+
+
 def test_exit_zero_and_all(capsys, fixtures):
     code, out, _ = run(capsys, str(fixtures / "uvproj"), "-p", "3.13", "--all", "--exit-zero")
     assert code == 0
